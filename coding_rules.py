@@ -208,8 +208,130 @@ for x in s:
     cnt[x] = 1
 
 
-# 9.8. dict value로 key값 찾기
+# 9.8. dict value로 key값 찾기 (items())
 for key, value in cnt.items():
   if value == "찾을 value 값":
     print(key, end=' ') # value에 해당하는 key 값 출력
 
+
+# 9.9. 리스트를 문자열로 변환하기 (join)
+arr = ['H', 'a', 'P', 'p', 'Y']
+print(type(''.join(arr))) # <class 'str'>
+print(''.join(arr))
+a = ['0', '1', '3', '6']
+print(int(''.join(a))) # 136
+
+
+# 9.10. 두 변수 값 바꾸기
+a, b = b, a
+
+
+# 9.11. 연속하는 값들을 합하여 M이 되는 경우의 수
+# - lt_idx와 rt_idx를 (왼쪽 끝 idx, 오른쪽 끝 idx) 지정하고, 
+# - 합이 M보다 크면 lt에 1을 더하고 작으면 rt에 1을 더하면서 한 칸씩 이동
+
+
+# 9.12. 딕셔너리 ‘key’로 존재 여부 확인
+d = {'사과':1, '배':2}
+if '사과' in d:
+  print("yes")
+
+
+# 9.13. 딕셔너리를 key 또는 value 기준으로 정렬
+a = {'Tom': 90, 'Liz': 75, 'John': 67, 'Mia': 92}
+
+print(a.keys()) # dict_keys(['Tom', 'Liz', 'John', 'Mia'])
+print(list(a.keys())) # ['Tom', 'Liz', 'John', 'Mia']
+print(sorted(a.keys())) # ['John', 'Liz', 'Mia', 'Tom']
+print(sorted(a.keys(), reverse=True)) # ['Tom', 'Mia', 'Liz', 'John']
+
+# 튜플 자료형으로 리턴
+print(sorted(a.items())) 
+# 결과 : [('John', 67), ('Liz', 75), ('Mia', 92), ('Tom', 90)]
+print(sorted(a.items(), reverse=True)) 
+# 결과 : [('Tom', 90), ('Mia', 92), ('Liz', 75), ('John', 67)]
+
+# 람다식 key값 기준 정렬
+print(sorted(a.items(), key=lambda x: x[0])) 
+# 결과 : [('John', 67), ('Liz', 75), ('Mia', 92), ('Tom', 90)]
+print(sorted(a.items(), key=lambda x: x[0], reverse=True)) 
+# 결과 : [('Tom', 90), ('Mia', 92), ('Liz', 75), ('John', 67)]
+
+# 람다식 value값 기준 정렬
+print(sorted(a.items(), key=lambda x: x[1]))
+# 결과 : [('John', 67), ('Liz', 75), ('Tom', 90), ('Mia', 92)]
+print(sorted(a.items(), key=lambda x: x[1], reverse=True))
+# 결과 : [('Mia', 92), ('Tom', 90), ('Liz', 75), ('John', 67)]
+
+
+# 9.14. 2차원 리스트 입력 받기
+'''
+[입력 예시]
+5
+0 2 1 1 0
+1 1 1 1 2
+0 2 1 2 1
+0 2 1 1 0
+0 1 1 1 2
+'''
+n = int(input())
+arr = list(list(map(int, input().split())) for _ in range(n))
+
+
+# 9.15. 이분 탐색
+a.sort() # 먼저 정렬
+lt = 0 # 시작 값
+rt = n-1 # 끝 값
+
+while lt <= rt:
+  mid = (lt + rt) // 2
+  if a[mid] < m:
+    lt = mid + 1
+  elif m < a[mid]:
+    rt = mid - 1
+  elif m == a[mid]:
+    print(mid+1)
+    break
+
+
+# 9.16. min, max
+max_val = max(max_val, tmp)
+min_val = min(min_val, tmp)
+
+
+# 9.17. list 2개로 dictionary를 생성하기
+key = ['Alex', 'Jess', 'Dilan', 'Mei', 'Teddy']
+value = [80, 90, 95, 67, 88]
+key_val = [key, value]
+landmark_dict = dict(zip(*key_val))
+
+
+# 9.18. list 비어있는지 확인
+arr = []
+if not arr:
+  print("empty")
+if arr:
+  print("not empty")
+
+
+# 9.19. 마지막 요소 가져오기, 제거하기
+arr = [1, 3, 5, 2, 4]
+print(arr[-1]) # 4
+arr.pop()
+
+
+# 9.20. deque
+# - O(1)성능 : deque는 양 끝 엘리먼트의 append와 pop이 압도적으로 빠르다. 
+
+from collections import deque
+deq = deque()
+deq = deque([1, 2, 3,4, 5, 7])
+deq.appendleft(2)
+deq.append(0)
+deq.popleft()
+deq.pop()
+deq.extend([8, 9, 10])
+deq.extendleft([0, 1, 2])
+deq.remove(10)
+deq.rotate(2)
+print(deq)

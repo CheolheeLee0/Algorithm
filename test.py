@@ -1,13 +1,14 @@
 import sys
 
-
-s = [1, 3, 4, 2, 3, 4, 1, 3]
-cnt = {} # dictionary 생성
-for x in s:
-  if x in cnt:
-    cnt[x] += 1
-  else:
-    cnt[x] = 1
-  
-
-print(cnt)
+from collections import deque
+deq = deque()
+deq = deque([1, 2, 3,4, 5, 7])
+deq.appendleft(2)
+deq.append(0)
+deq.popleft()
+deq.pop()
+deq.extend([8, 9, 10])
+deq.extendleft([0, 1, 2])
+deq.remove(10)
+deq.rotate(2)
+print(deq)
