@@ -69,14 +69,15 @@ if any(10 > x for x in a):
   print("20미만인 원소가 존재합니다.")
 
 # N*M 2차원 리스트 초기화 할 때 (세로 N & 가로 M)
-array = [[0]*m for _in range(n)]
+n, m = 2, 3
+array = [[0]*m for _ in range(n)]
 
 
 # 5. tuple
 # - indexing, slicing 가능, 특정 index 값 변경 불가
 # - 조작 불가
 # - 연결 : +
-# - in
+# - in, count(x), index(x)
 t = ()
 t = (1, 2, 3)
 t2 = (4, 5, 6)
@@ -87,9 +88,12 @@ print(4 in t3)
 # 6. dict
 # - {key: value} 형태 : {'name': 'chlee', 'no': 2018}
 # - O(1) 성능 : key값으로 value 조회
+# - keys(), values()
 d = {}
 d = {'name': 'chlee', 'no': 2018}
-
+print(d.keys())
+print(d.values())
+print(list(d.keys())
 
 # 7. set
 # - 중복 불가, 순서 없음
@@ -132,3 +136,80 @@ b = "Hello"
 c = "World"
 print(a) # ABCDEF
 print(b + " " + c) # Hello World
+
+
+# 9. cheat sheet
+import sys
+
+# 9.1. 입력 함수
+def input():
+  return sys.stdin.readline().rstrip()
+
+# 9.2. 여러 입력을 여러 변수로 받기
+'''
+[입력 예시]
+1 2 3 4
+'''
+a, b, c, d = map(int, input().split())
+print(a, b, c, d) # 1, 2, 3, 4
+
+
+# 9.3. 여러 입력을 한 리스트 변수로 받기
+'''
+[입력 예시]
+1 3 5 7 9 10
+'''
+a = list(map(int, input().split()))
+print(a) # [1, 3, 5, 7, 9, 10]
+
+'''
+[입력 예시]
+A B C D E
+'''
+a = list(input().split())
+print(a) # ['A', 'B', 'C', 'D', 'E']
+
+
+# 9.4. 리스트의 중복 제거, 정렬하기
+a = [3, 1, 5, 8, 5, 10, 7, 1]
+print(a)
+b = list(set(a)) # [1, 3, 5, 7, 8, 10]
+c = sorted(list(set(a))) # [1, 3, 5, 7, 8, 10]
+d = sorted(list(set(a)), reverse=True) # [10, 8, 7, 5, 3, 1]
+
+
+# 9.5. 리스트의 총 합계, 평균 구하기
+# - sum(list), round(sum(list) / N, 0) 
+# - for문 대신 sum 사용하면 편하다
+N = int(input()) # 개수
+a = list(map(int, input().split())) # 점수 리스트 입력
+total = sum(a)
+avg = int(round(total/N, 0)) # 평균을 첫째 자리에서 반올림
+
+
+# 9.6. 리스트 반복문에서 리스트의 원소 여러 번 사용할 때 (enumerate)
+score = [80, 83, 95, 87, 93, 71]
+for i, val in enumerate(score):
+  if val > 90: # "score[i] < 90" 대신 짧고 편하게 사용 가능
+    print("B")
+  elif val > 80:
+    print("C")
+  elif val > 70:
+    print("D")
+
+
+# 9.7. 리스트의 원소 세기 (dict)
+s = [1, 3, 4, 2, 3, 4, 1, 3]
+cnt = {} # dictionary 생성
+for x in s:
+  if x in cnt:
+    cnt[x] += 1
+  else:
+    cnt[x] = 1
+
+
+# 9.8. dict value로 key값 찾기
+for key, value in cnt.items():
+  if value == "찾을 value 값":
+    print(key, end=' ') # value에 해당하는 key 값 출력
+

@@ -26,3 +26,4 @@ for i in range(N):
     result += "YES\n" if cnt == 0 else "NO\n"
 
 print(result)
+
