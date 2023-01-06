@@ -335,3 +335,9 @@ deq.extendleft([0, 1, 2])
 deq.remove(10)
 deq.rotate(2)
 print(deq)
+
+# 9.21. fstring
+s = 'coffee'
+n = 5
+result1 = f'저는 {s}를 좋아합니다. 하루 {n}잔 마셔요.'
+print(result1)
