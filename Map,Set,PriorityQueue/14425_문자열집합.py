@@ -21,6 +21,3 @@ for i in range(M):
     ans += 1
 
 print(ans)
-
-
-₩
