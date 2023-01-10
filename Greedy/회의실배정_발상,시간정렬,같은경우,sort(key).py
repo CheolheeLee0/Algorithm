@@ -20,9 +20,9 @@ meetings.sort(key=lambda x: (x[1], x[0]))
 
 time = 0
 answer = 0
-for meeting in meetings:
-    if time <= meeting[0]:
-        time = meeting[1]
+for s, e in meetings:
+    if time <= s:
+        time = e
         answer += 1
 
 print(answer)
