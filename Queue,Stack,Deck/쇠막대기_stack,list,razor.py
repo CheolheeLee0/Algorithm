@@ -10,7 +10,7 @@ def input():
 
 
 text = list(input().replace("()", "*"))
-
+print(text)
 stack = []
 result = 0
 
