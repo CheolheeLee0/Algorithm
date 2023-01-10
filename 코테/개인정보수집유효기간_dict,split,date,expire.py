@@ -1,3 +1,7 @@
+# Author : Catveloper
+# Problem : https://school.programmers.co.kr/learn/courses/30/lessons/150370
+# 01/10 18:40~19:14
+
 def solution(today, terms, privacies):
     answer = []
     # ['2022', '05', '19']
