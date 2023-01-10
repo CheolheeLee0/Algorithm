@@ -9,7 +9,7 @@ def input():
   return sys.stdin.readline().rstrip()
 
 
-text = list(sys.stdin.readline().strip().replace("()", "*"))
+text = list(input().replace("()", "*"))
 
 stack = []
 result = 0
