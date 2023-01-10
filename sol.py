@@ -1,6 +1,6 @@
 # Author : Catveloper
 # Problem : https://www.acmicpc.net/problem/10866
-# 01/10 16:05
+# 01/10 17:35
 import sys
 from collections import deque
 
